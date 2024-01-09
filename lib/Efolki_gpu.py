@@ -2,6 +2,20 @@ import pycuda.autoinit
 import pycuda.driver as cuda
 from pycuda.compiler import SourceModule
 
+def conv2SepMatlabbis(I, fen):
+
+    rad = int((fen.size-1)/2)
+    ligne = np.zeros((rad, I.shape[1]))
+    I = np.append(ligne, I, axis=0)
+    I = np.append(I, ligne, axis=0)
+
+    colonne = np.zeros((I.shape[0], rad))
+    I = np.append(colonne, I, axis=1)
+    I = np.append(I, colonne, axis=1)
+
+    res = conv2bis(conv2bis(I, fen.T), fen)
+    return res
+
 def EFolkiIter(I0, I1, iteration=5, radius=[8, 4], rank=4, uinit=None,vinit=None):
     talon=1.e-8
     if rank > 0:

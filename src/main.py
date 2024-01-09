@@ -8,8 +8,8 @@ os.system('git clone https://github.com/aplyer/gefolki.git')
 sys.path.append('gefolki/python')
 from algorithm import EFolki
 
-os.system('wget https://raw.githubusercontent.com/aplyer/gefolki/master/datasets/QB.tif')
-os.system('wget https://raw.githubusercontent.com/aplyer/gefolki/master/datasets/WV.tif')
+#os.system('wget https://raw.githubusercontent.com/aplyer/gefolki/master/datasets/QB.tif')
+#os.system('wget https://raw.githubusercontent.com/aplyer/gefolki/master/datasets/WV.tif')
 
 print("Read WV Image \n")
 WV = imread("WV.tif")
